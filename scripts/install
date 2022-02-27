@@ -84,7 +84,7 @@ ynh_setup_source --dest_dir=$final_path
 # Temporary fix -> https://github.com/cydrobolt/polr/pull/567
 cp ../sources/composer.json $final_path/composer.json
 
-chmod 750 "$final_path"
+chmod 755 "$final_path"
 chmod -R o-rwx "$final_path"
 chown -R $app:www-data "$final_path"
 
@@ -106,7 +106,7 @@ ynh_add_fpm_config
 phpversion=$(ynh_app_setting_get --app=$app --key=phpversion)
 
 #=================================================
-# INSTALL LYCHEE WITH COMPOSER
+# INSTALL POLR WITH COMPOSER
 #=================================================
 ynh_script_progression --message="Installing $app with Composer..." --weight=3
 
@@ -120,9 +120,8 @@ ynh_script_progression --message="Building..."
 
 ynh_add_config --template="../conf/.env.example" --destination="$final_path/.env"
 
-chmod 400 "$final_path/.env"
+chmod 650 "$final_path/.env"
 chown $app:$app "$final_path/.env"
-
 
 # Setup application config
 # pushd $final_path
