@@ -3,8 +3,8 @@
     "id": "polr",
     "packaging_format": 1,
     "description": {
-        "en": "A modern, powerful, and robust URL shortener",
-        "fr": "."
+        "en": "Modern, powerful, and robust URL shortener",
+        "fr": "Raccourcisseur d'URL moderne, puissant et robuste "
     },
     "version": "2.3.0~ynh1",
     "url": "https://polrproject.org/",
