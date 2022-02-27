@@ -59,10 +59,10 @@ ynh_install_app_dependencies $pkg_dependencies
 #=================================================
 ynh_script_progression --message="Creating a MySQL database..."
 
-# db_name=$(ynh_sanitize_dbid --db_name=$app)
-# db_user=$db_name
-# ynh_app_setting_set --app=$app --key=db_name --value=$db_name
-# ynh_mysql_setup_db --db_user=$db_user --db_name=$db_name
+db_name=$(ynh_sanitize_dbid --db_name=$app)
+db_user=$db_name
+ynh_app_setting_set --app=$app --key=db_name --value=$db_name
+ynh_mysql_setup_db --db_user=$db_user --db_name=$db_name
 
 #=================================================
 # CREATE DEDICATED USER
@@ -83,8 +83,6 @@ ynh_setup_source --dest_dir=$final_path
 
 # Temporary fix -> https://github.com/cydrobolt/polr/pull/567
 cp ../sources/composer.json $final_path/composer.json
-
- touch $final_path/database/database.sqlite
 
 chmod 755 "$final_path"
 chmod -R o-rwx "$final_path"
