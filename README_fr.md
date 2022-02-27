@@ -11,7 +11,7 @@ Si vous n'avez pas YunoHost, regardez [ici](https://yunohost.org/#/install) pour
 
 ## Vue d'ensemble
 
-.
+Polr is an intrepid, self-hostable open-source link shortening web application with a robust API. It allows you to host your own URL shortener, to brand your URLs, and to gain control over your data. Polr is especially easy to use, and provides a modern, themable feel.
 
 **Version incluse :** 2.3.0~ynh1
 
@@ -23,7 +23,7 @@ Si vous n'avez pas YunoHost, regardez [ici](https://yunohost.org/#/install) pour
 
 ## Documentations et ressources
 
-* Site officiel de l'app : ttps://polrproject.org/
+* Site officiel de l'app : https://polrproject.org/
 * Documentation officielle utilisateur : https://docs.polrproject.org/en/latest/
 * Dépôt de code officiel de l'app : https://github.com/cydrobolt/polr/
 * Documentation YunoHost pour cette app : https://yunohost.org/app_polr
