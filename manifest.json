@@ -1,0 +1,72 @@
+{
+    "name": "Polr",
+    "id": "polr",
+    "packaging_format": 1,
+    "description": {
+        "en": "A modern, powerful, and robust URL shortener.",
+        "fr": "."
+    },
+    "version": "2.3.0~ynh1",
+    "url": "https://polrproject.org/",
+    "upstream": {
+        "license": "GPL-2.0-only",
+        "website": "ttps://polrproject.org/",
+        "demo": "https://demo.polr.me/",
+        "userdoc": "https://docs.polrproject.org/en/latest/",
+        "code": "https://github.com/cydrobolt/polr/"
+    },
+    "license": "GPL-2.0-only",
+    "maintainer": {
+        "name": "eric_G",
+        "email": ""
+    },
+    "requirements": {
+        "yunohost": ">> 4.3.0"
+    },
+    "multi_instance": true,
+    "services": [
+        "nginx",
+        "php7.3-fpm",
+        "mysql"
+    ],
+    "arguments": {
+        "install" : [
+            {
+                "name": "domain",
+		"type": "domain",
+                "ask": {
+                    "en": "Choose a domain name for Polr",
+                    "fr": "Choisissez un nom de domaine pour Polr"
+                },
+                "example": "example.com"
+            },
+            {
+            "name": "path",
+            "type": "path",
+                "ask": {
+                    "en": "Choose a path for Polr",
+                    "fr": "Choisissez un chemin pour Polr"
+                },
+                "example": "/polr",
+                "default": "/polr"
+            },
+            {
+            "name": "admin",
+            "type": "user",
+                "ask": {
+                    "en": "Choose the Mantis administrator",
+                    "fr": "Choisissez l’administrateur de Mantis"
+                }
+            },
+            {
+            "name": "is_public",
+            "type": "boolean",
+                "ask": {
+                    "en": "Is it a public application?",
+                    "fr": "Est-ce une application publique ?"
+                },
+                "default": true
+            }
+        ]
+    }
+}

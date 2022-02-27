@@ -1,0 +1,5 @@
+SOURCE_URL=https://github.com/cydrobolt/polr/archive/refs/tags/2.3.0b.zip
+SOURCE_SUM=0cc05c9ec91d98ea68913505c4c92b041ff145b2c86b87f84147402f2fc4f4ac
+SOURCE_SUM_PRG=sha256sum
+SOURCE_FORMAT=zip
+SOURCE_IN_SUBDIR=true
