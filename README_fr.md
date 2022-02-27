@@ -17,6 +17,10 @@ Si vous n'avez pas YunoHost, regardez [ici](https://yunohost.org/#/install) pour
 
 **Démo :** https://demo.polr.me/
 
+## Captures d'écran
+
+![](./doc/screenshots/p5.png)
+
 ## Documentations et ressources
 
 * Site officiel de l'app : ttps://polrproject.org/

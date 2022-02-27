@@ -15,11 +15,15 @@ If you don't have YunoHost, please consult [the guide](https://yunohost.org/#/in
 
 ## Overview
 
-A modern, powerful, and robust URL shortener.
+A modern, powerful, and robust URL shortener
 
 **Shipped version:** 2.3.0~ynh1
 
 **Demo:** https://demo.polr.me/
+
+## Screenshots
+
+![](./doc/screenshots/p5.png)
 
 ## Documentation and resources
 
