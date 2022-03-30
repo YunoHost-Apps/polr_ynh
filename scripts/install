@@ -123,6 +123,10 @@ ynh_script_progression --message="Installing $app with Composer..." --weight=3
 ynh_secure_remove --file="$final_path/composer.lock"
 ynh_install_composer
 
+pushd "$final_path"
+	php$phpversion artisan migrate -n --force
+popd
+
 #=================================================
 # SETUP SSOWAT
 #=================================================
