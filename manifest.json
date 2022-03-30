@@ -4,7 +4,7 @@
     "packaging_format": 1,
     "description": {
         "en": "Modern, powerful, and robust URL shortener",
-        "fr": "Raccourcisseur d'URL moderne, puissant et robuste "
+        "fr": "Raccourcisseur d'URL moderne, puissant et robuste"
     },
     "version": "2.3.0~ynh1",
     "url": "https://polrproject.org/",
@@ -48,11 +48,7 @@
             {
             "name": "is_public",
             "type": "boolean",
-                "ask": {
-                    "en": "Is it a public application?",
-                    "fr": "Est-ce une application publique ?"
-                },
-                "default": true
+            "default": true
             }
         ]
     }
