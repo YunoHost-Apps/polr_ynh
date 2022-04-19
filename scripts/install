@@ -123,11 +123,6 @@ ynh_script_progression --message="Installing $app with Composer..." --weight=3
 ynh_secure_remove --file="$final_path/composer.lock"
 ynh_install_composer
 
-pushd "$final_path"
-	php$phpversion artisan migrate -n --force
-	php$phpversion artisan geoip:update -n --force
-popd
-
 #=================================================
 # SETUP SSOWAT
 #=================================================
@@ -145,6 +140,26 @@ fi
 ynh_script_progression --message="Reloading NGINX web server..." --weight=2
 
 ynh_systemd_action --service_name=nginx --action=reload
+
+#=================================================
+# SEND A README FOR THE ADMIN
+#=================================================
+ynh_script_progression --message="Sending a readme for the admin..." --weight=1
+
+message="Polr was successfully installed :)
+
+Please open your $app domain: https://$domain/setup/
+
+Complete the registration process from the setup page displayed.
+Details for MySQL database to be enterted while registration process:
+
+Database login:    $db_user
+Database name:     $db_name
+Database password: $db_pwd
+
+If you are facing any problem or want to improve this app, please open a new issue here: https://github.com/YunoHost-Apps/polr_ynh/issues"
+
+ynh_send_readme_to_admin "$message"
 
 #=================================================
 # END OF SCRIPT
