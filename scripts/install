@@ -110,7 +110,7 @@ phpversion=$(ynh_app_setting_get --app=$app --key=phpversion)
 #=================================================
 ynh_script_progression --message="Building..."
 
-ynh_add_config --template="../conf/.env.example" --destination="$final_path/setup/.env"
+ynh_add_config --template="../conf/.env.setup" --destination="$final_path/setup/.env"
 
 chmod 650 "$final_path/.env"
 chown $app:$app "$final_path/.env"
