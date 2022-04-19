@@ -106,11 +106,11 @@ phpversion=$(ynh_app_setting_get --app=$app --key=phpversion)
 #=================================================
 # BUILDING
 #=================================================
-# ynh_script_progression --message="Adding a configuration file..."
+ynh_script_progression --message="Adding a configuration file..."
 
-# ynh_add_config --template="../conf/.env.setup" --destination="$final_path/.env"
-# chmod 755 "$final_path/.env"
-# chown $app:$app "$final_path/.env"
+ynh_add_config --template="../conf/.env.setup" --destination="$final_path/.env"
+chmod 755 "$final_path/.env"
+chown $app:$app "$final_path/.env"
 
 #=================================================
 # INSTALL POLR WITH COMPOSER
