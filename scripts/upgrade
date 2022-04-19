@@ -85,7 +85,7 @@ then
 	ynh_script_progression --message="Upgrading source files..." --weight=4
 
 	# Download, check integrity, uncompress and patch the source from app.src
-	ynh_setup_source --dest_dir="$final_path"
+	ynh_setup_source --dest_dir="$final_path" --keep="$final_path/.env"
 fi
 
 chmod 755 "$final_path"
@@ -123,7 +123,11 @@ ynh_add_fpm_config
 ynh_script_progression --message="Installing Composer..." --weight=10
 
 ynh_secure_remove --file="$final_path/composer.lock"
-ynh_install_composer --phpversion=$phpversion --workdir=$final_path --install_args="--optimize-autoloader"
+ynh_install_composer
+
+pushd $final_path
+	php$phpversion artisan migrate -n --force
+popd
 
 #=================================================
 # RELOAD NGINX
