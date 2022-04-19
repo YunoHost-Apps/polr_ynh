@@ -113,7 +113,7 @@ ynh_script_progression --message="Building..."
 ynh_add_config --template="../conf/.env.setup" --destination="$final_path/.env"
 
 chmod 650 "$final_path/.env"
-chown $app:$app "$final_path/.env"
+chown $app: "$final_path/.env"
 
 #=================================================
 # INSTALL POLR WITH COMPOSER
