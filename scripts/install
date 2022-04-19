@@ -82,10 +82,6 @@ ynh_setup_source --dest_dir=$final_path
 # Temporary fix -> https://github.com/cydrobolt/polr/pull/567
 cp ../sources/composer.json $final_path/composer.json
 
-chmod 755 "$final_path"
-chmod -R o-rwx "$final_path"
-chown -R $app:www-data "$final_path"
-
 #=================================================
 # NGINX CONFIGURATION
 #=================================================
@@ -117,6 +113,10 @@ ynh_script_progression --message="Installing $app with Composer..." --weight=3
 
 ynh_secure_remove --file="$final_path/composer.lock"
 ynh_install_composer
+
+chmod 755 "$final_path"
+chmod -R o-rwx "$final_path"
+chown -R $app:www-data "$final_path"
 
 #=================================================
 # SETUP SSOWAT
