@@ -36,6 +36,12 @@
 		    "type": "domain"
             },
             {
+            "name": "path",
+            "type": "path",
+                "example": "/polr",
+                "default": "/polr"
+            },
+            {
             "name": "admin",
             "type": "user"
             },
