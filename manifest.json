@@ -46,7 +46,7 @@
             },
             {
                 "name": "password",
-                "type": "password",
+                "type": "password"
             }
         ]
     }
