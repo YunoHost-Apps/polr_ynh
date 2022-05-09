@@ -129,7 +129,7 @@ ynh_script_progression --message="Buiding..." --weight=3
 # Setup application config
 pushd $final_path
 	php$phpversion artisan migrate -n --force
-	php$phpversion artisan geoip:update -n --force
+	php$phpversion artisan geoip:update -n
 popd
 
 #=================================================
