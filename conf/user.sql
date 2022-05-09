@@ -1,0 +1,1 @@
+INSERT INTO `users` (`id`, `username`, `password`, `email`, `ip`, `recovery_key`, `role`) VALUES (NULL, '__ADMIN__', '__PASSWORD__', '__EMAIL__', NULL, NULL, 'admin');

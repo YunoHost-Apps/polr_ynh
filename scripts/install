@@ -23,6 +23,9 @@ domain=$YNH_APP_ARG_DOMAIN
 path_url="/"
 is_public=$YNH_APP_ARG_IS_PUBLIC
 random=$(ynh_string_random --length=32)
+admin=$YNH_APP_ARG_ADMIN
+password=$YNH_APP_ARG_PASSWORD
+email=$(ynh_user_get_info --username=$admin --key=mail)
 
 app=$YNH_APP_INSTANCE_NAME
 
@@ -44,6 +47,7 @@ ynh_script_progression --message="Storing installation settings..." --weight=1
 
 ynh_app_setting_set --app=$app --key=domain --value=$domain
 ynh_app_setting_set --app=$app --key=path --value=$path_url
+ynh_app_setting_set --app=$app --key=admin --value=$admin
 
 #=================================================
 # INSTALL DEPENDENCIES
@@ -114,7 +118,7 @@ ynh_install_composer
 #=================================================
 # BUILDING
 #=================================================
-ynh_script_progression --message="Adding a configuration file..."
+ynh_script_progression --message="Adding a configuration file..." --weight=1
 
 ynh_add_config --template="../conf/.env.setup" --destination="$final_path/.env"
 
@@ -130,6 +134,19 @@ ynh_script_progression --message="Buiding..." --weight=3
 pushd $final_path
 	php$phpversion artisan migrate -n --force
 popd
+
+#=================================================
+# ADD ADMIN USER
+#=================================================
+ynh_script_progression --message="Adding admin user..." --weight=1
+
+# Replace variables in SQL scripts
+ynh_replace_string --match_string="__ADMIN__" --replace_string="$admin" --target_file="../conf/user.sql"
+ynh_replace_string --match_string="__PASSWORD__" --replace_string="$password" --target_file="../conf/user.sql"
+ynh_replace_string --match_string="__EMAIL__" --replace_string="$email" --target_file="../conf/user.sql"
+
+# Load initial SQL into the new database
+ynh_mysql_connect_as --user=$db_user --password=$db_pwd --database=$db_name < "../conf/user.sql"
 
 #=================================================
 # SETUP SSOWAT
