@@ -150,7 +150,7 @@ ynh_script_progression --message="Adding admin user..." --weight=1
 
 set_date=$(date "+%F %T")
 
-ynh_mysql_connect_as --user=$db_user --password=$db_pwd --database=$db_name <<< "INSERT INTO 'users' ('id', 'username', 'password', 'email', 'ip', 'recovery_key', 'role', 'active', 'api_key', 'api_active', 'api_quota', 'created_at', 'updated_at', 'deleted_at') VALUES ('1', '$admin', '$password', '$email', NULL, NULL, 'admin', '1', NULL, '0', '60', '$set_date', '$set_date', NULL);"
+ynh_mysql_connect_as --user=$db_user --password=$db_pwd --database=$db_name <<< "INSERT INTO "users" ("id", "username", "password", "email", "ip", "recovery_key", "role", "active", "api_key", "api_active", "api_quota", "created_at", "updated_at", "deleted_at") VALUES ('1', '$admin', '$password', '$email', NULL, NULL, 'admin', '1', NULL, '0', '60', '$set_date', '$set_date', NULL);"
 
 #=================================================
 # SETUP SSOWAT
