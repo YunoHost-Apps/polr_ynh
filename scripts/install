@@ -108,14 +108,6 @@ ynh_add_fpm_config
 phpversion=$(ynh_app_setting_get --app=$app --key=phpversion)
 
 #=================================================
-# INSTALL LYCHEE WITH COMPOSER
-#=================================================
-ynh_script_progression --message="Installing $app with Composer..." --weight=15
-
-ynh_secure_remove --file="$final_path/composer.lock"
-ynh_install_composer
-
-#=================================================
 # BUILDING
 #=================================================
 ynh_script_progression --message="Adding a configuration file..." --weight=1
@@ -124,6 +116,14 @@ ynh_add_config --template="../conf/.env.setup" --destination="$final_path/.env"
 
 chmod 755 "$final_path/.env"
 chown $app:$app "$final_path/.env"
+
+#=================================================
+# INSTALL LYCHEE WITH COMPOSER
+#=================================================
+ynh_script_progression --message="Installing $app with Composer..." --weight=15
+
+ynh_secure_remove --file="$final_path/composer.lock"
+ynh_install_composer
 
 #=================================================
 # INSTALL POLR WITH COMPOSER
@@ -140,16 +140,7 @@ popd
 #=================================================
 ynh_script_progression --message="Adding admin user..." --weight=1
 
-# Replace variables in SQL scripts
-# ynh_replace_string --match_string="__ADMIN__" --replace_string="$admin" --target_file="../conf/user.sql"
-# ynh_replace_string --match_string="__PASSWORD__" --replace_string="$password" --target_file="../conf/user.sql"
-# ynh_replace_string --match_string="__EMAIL__" --replace_string="$email" --target_file="../conf/user.sql"
-
-# # Load initial SQL into the new database
-# ynh_mysql_connect_as --user=$db_user --password=$db_pwd --database=$db_name < "../conf/user.sql"
-
 set_date=$(date "+%F %T")
-
 ynh_mysql_connect_as --user=$db_user --password=$db_pwd --database=$db_name <<< "INSERT INTO "users" ("id", "username", "password", "email", "ip", "recovery_key", "role", "active", "api_key", "api_active", "api_quota", "created_at", "updated_at", "deleted_at") VALUES ('1', '$admin', '$password', '$email', '', '', 'admin', '1', NULL, '0', '60', '$set_date', '$set_date', NULL);"
 
 #=================================================
