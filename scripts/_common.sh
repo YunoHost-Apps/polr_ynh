@@ -4,10 +4,10 @@
 # COMMON VARIABLES
 #=================================================
 
-YNH_PHP_VERSION=7.3
+YNH_PHP_VERSION="7.4"
 
 # Composer version
-YNH_COMPOSER_VERSION="2.3.3"
+YNH_COMPOSER_VERSION="2.3.5"
 
 pkg_dependencies="memcached libmemcached-tools php${YNH_PHP_VERSION}-memcache php${YNH_PHP_VERSION}-memcached php${YNH_PHP_VERSION}-sqlite3 php${YNH_PHP_VERSION}-curl php${YNH_PHP_VERSION}-mbstring php${YNH_PHP_VERSION}-json php${YNH_PHP_VERSION}-gd php${YNH_PHP_VERSION}-mysql"
 
