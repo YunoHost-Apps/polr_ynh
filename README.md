@@ -5,7 +5,7 @@ It shall NOT be edited by hand.
 
 # Polr for YunoHost
 
-[![Integration level](https://dash.yunohost.org/integration/polr.svg)](https://dash.yunohost.org/appci/app/polr) ![](https://ci-apps.yunohost.org/ci/badges/polr.status.svg) ![](https://ci-apps.yunohost.org/ci/badges/polr.maintain.svg)  
+[![Integration level](https://dash.yunohost.org/integration/polr.svg)](https://dash.yunohost.org/appci/app/polr) ![Working status](https://ci-apps.yunohost.org/ci/badges/polr.status.svg) ![Maintenance status](https://ci-apps.yunohost.org/ci/badges/polr.maintain.svg)  
 [![Install Polr with YunoHost](https://install-app.yunohost.org/install-with-yunohost.svg)](https://install-app.yunohost.org/?app=polr)
 
 *[Lire ce readme en français.](./README_fr.md)*
@@ -15,7 +15,7 @@ If you don't have YunoHost, please consult [the guide](https://yunohost.org/#/in
 
 ## Overview
 
-Polr is an intrepid, self-hostable open-source link shortening web application with a robust API. It allows you to host your own URL shortener, to brand your URLs, and to gain control over your data. Polr is especially easy to use, and provides a modern, themable feel.
+Polr is a beautiful, modern, lightweight, and minimalist open-source URL shortening application. It allows you to host your own URL shortener, to brand your URLs, and to gain control over your data. Polr is especially easy to use, and provides a modern, themable interface.
 
 **Shipped version:** 2.3.0~ynh1
 
@@ -23,25 +23,26 @@ Polr is an intrepid, self-hostable open-source link shortening web application w
 
 ## Screenshots
 
-![](./doc/screenshots/p5.png)
+![Screenshot of Polr](./doc/screenshots/p5.png)
 
 ## Documentation and resources
 
-* Official app website: https://polrproject.org/
-* Official user documentation: https://docs.polrproject.org/en/latest/
-* Upstream app code repository: https://github.com/cydrobolt/polr/
-* YunoHost documentation for this app: https://yunohost.org/app_polr
-* Report a bug: https://github.com/YunoHost-Apps/polr_ynh/issues
+* Official app website: <https://polrproject.org/>
+* Official user documentation: <https://docs.polrproject.org/en/latest/>
+* Upstream app code repository: <https://github.com/cydrobolt/polr/>
+* YunoHost documentation for this app: <https://yunohost.org/app_polr>
+* Report a bug: <https://github.com/YunoHost-Apps/polr_ynh/issues>
 
 ## Developer info
 
 Please send your pull request to the [testing branch](https://github.com/YunoHost-Apps/polr_ynh/tree/testing).
 
 To try the testing branch, please proceed like that.
-```
+
+``` bash
 sudo yunohost app install https://github.com/YunoHost-Apps/polr_ynh/tree/testing --debug
 or
 sudo yunohost app upgrade polr -u https://github.com/YunoHost-Apps/polr_ynh/tree/testing --debug
 ```
 
-**More info regarding app packaging:** https://yunohost.org/packaging_apps
+**More info regarding app packaging:** <https://yunohost.org/packaging_apps>
